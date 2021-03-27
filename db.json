@@ -1,1 +1,54 @@
-{"messages": {"Mario": {"sender": "Giovanni", "content": "Il cane \u00e8 ubriaco"}}}
+{
+  "messages": [
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    },
+    {
+      "receiver": "Mario",
+      "sender": "Giovanni",
+      "content": "Il cane \u00e8 ubriaco"
+    }
+  ]
+}

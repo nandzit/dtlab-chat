@@ -4,7 +4,6 @@
 
 from flask import Flask, request
 import user
-import message
 # viene creata l'applicazione con il nome del modulo corrente.
 app = Flask(__name__)
 
@@ -75,7 +74,6 @@ def login ():
     else:
         return "Welcome back", 201
   
-def remove
 
 if __name__ == '__main__':
     app.run(host='localhost',port=5000,debug=True)
