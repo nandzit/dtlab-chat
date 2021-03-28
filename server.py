@@ -4,8 +4,16 @@
 
 from flask import Flask, request
 import user
+from enum import Enum
+
 # viene creata l'applicazione con il nome del modulo corrente.
 app = Flask(__name__)
+
+class Result(Enum):
+    OK = 1
+    NOT_FOUND = 2
+    NOT_AUTHORIZED = 3
+    DUPLICATED = 4
 
 # getErrorCode è una funzione di utilità che mappa i valori ritornati dal modulo user con quelli del
 # protocollo HTTP in caso di errore. 
@@ -73,6 +81,19 @@ def login ():
         return "Sorry we don't know you", code
     else:
         return "Welcome back", 201
+
+@app.route('/user/delete', methods=["DELETE"])
+def deleteUser():
+    data = request.get_json()
+    user_id = request.args.get('id')
+    result = user.DeleteUser(user_id)
+
+    if result is not user.Result.OK:
+        code = getErrorCode(result)
+        return '', code
+    else:
+        return '', 200
+
   
 
 if __name__ == '__main__':
