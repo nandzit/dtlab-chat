@@ -7,7 +7,7 @@ import user
 from enum import Enum
 import message
 import jwt
-import pdb
+
 # viene creata l'applicazione con il nome del modulo corrente.
 app = Flask(__name__)
 
@@ -85,7 +85,6 @@ def login ():
         return "Sorry we don't know you", code
     else:
         try:
-            pdb.set_trace()
             credentials = {"email": u["email"], "password":u["password"]}
             encoded_jwt = jwt.encode(credentials, private_key, algorithm="HS256")
             return encoded_jwt, 200
