@@ -34,10 +34,7 @@ def findUserByEmail(email: str) -> dict:
 
 #Metodo di utilità per cercare un utente dato in ingresso un ID. Se non esiste viene ritornato None
 def findUserByID(id: str) -> dict:
-    try: 
-      bID = uuid.UUID(id)
-    except:
-      return None
+    bID = uuid.UUID(id)
     for user in users:
         if user['id'] == bID:
             return user
@@ -67,6 +64,7 @@ def SaveUser(name: str, surname: str, email: str, password: str) -> (Result, dic
         }
         users.append(user.copy())
         user['password'] = ''
+        print(users)
         return Result.OK, user
     else:
         return Result.DUPLICATED, None
@@ -81,3 +79,12 @@ def Login(email: str, password: str)-> (Result, dict):
         return Result.OK, res
     else:
         return Result.NOT_AUTHORIZED, None
+
+def DeleteUser(user_id: str)-> Result:
+    delete = findUserByID(user_id)
+    if delete is not None:
+        users.remove(delete)
+        return Result.OK
+    else:
+        return Result.NOT_FOUND
+
