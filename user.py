@@ -32,6 +32,7 @@ def findUserByEmail(email: str) -> dict:
             return user
     return None
 
+
 #Metodo di utilità per cercare un utente dato in ingresso un ID. Se non esiste viene ritornato None
 def findUserByID(id: str) -> dict:
     bID = uuid.UUID(id)
@@ -64,7 +65,6 @@ def SaveUser(name: str, surname: str, email: str, password: str) -> (Result, dic
         }
         users.append(user.copy())
         user['password'] = ''
-        print(users)
         return Result.OK, user
     else:
         return Result.DUPLICATED, None
@@ -75,16 +75,17 @@ def Login(email: str, password: str)-> (Result, dict):
     u = findUserByEmail(email)
     if u is not None and bcrypt.checkpw(password.encode('utf8'), u['password']):
         res = u.copy()
-        res ['password'] = ''
+        res['password'] = ''
         return Result.OK, res
     else:
         return Result.NOT_AUTHORIZED, None
 
-def DeleteUser(user_id: str)-> Result:
-    delete = findUserByID(user_id)
-    if delete is not None:
-        users.remove(delete)
+
+def deleteUser(userID: str):
+    user = findUserByID(userID)
+    print(userID)
+    if user is not None:
+        users.remove(user)
         return Result.OK
     else:
         return Result.NOT_FOUND
-
